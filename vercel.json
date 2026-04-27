@@ -8,16 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
       "src": "/analyze",
       "dest": "main.py"
     },
     {
       "src": "/(.*)",
-      "dest": "main.py"
+      "dest": "/$1"
     }
   ]
 }

@@ -25,10 +25,6 @@ class AnalyzeRequest(BaseModel):
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/")
-def read_root():
-    return FileResponse("static/index.html")
-
 @app.post("/analyze")
 async def analyze_tiktok_url(req: AnalyzeRequest):
     if not req.url:
