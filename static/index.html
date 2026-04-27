@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Demand & Behavior Insight AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-brands fa-tiktok"></i>
+            <span>Insight AI</span>
+        </div>
+        <button id="theme-toggle" class="theme-btn">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </nav>
+
+    <main class="container">
+        <header class="header">
+            <h1>TikTok Demand & Behavior <span class="gradient-text">Insight AI</span></h1>
+            <p>Analisis sentimen, perilaku konsumen, dan prediksi bisnis dari video TikTok Anda secara instan.</p>
+        </header>
+
+        <section class="input-section card">
+            <form id="analyze-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-link"></i>
+                    <input type="url" id="tiktok-url" placeholder="Masukkan Link Video TikTok (contoh: https://www.tiktok.com/@user/video/123)" required>
+                    <button type="submit" class="btn-primary" id="analyze-btn">
+                        <span>Analyze</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="error-message" id="error-message"></div>
+            </form>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading-container hidden">
+            <div class="spinner"></div>
+            <p>Menganalisis video & memproses data menggunakan AI...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results-container hidden">
+            <!-- Smart Recommendation Alert -->
+            <div class="alert-box" id="smart-recommendation">
+                <i class="fa-solid fa-lightbulb"></i>
+                <div class="alert-content">
+                    <h4>Smart Recommendation</h4>
+                    <p id="rec-text">Tingkatkan terus kualitas konten Anda!</p>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon comments"><i class="fa-solid fa-comments"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Komentar</h3>
+                        <p id="stat-comments" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon conversion"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <div class="stat-info">
+                        <h3>Estimasi Pembeli</h3>
+                        <p id="stat-buyers" class="stat-value">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon production"><i class="fa-solid fa-box-open"></i></div>
+                    <div class="stat-info">
+                        <h3>Rekomendasi Produksi</h3>
+                        <p id="stat-production" class="stat-value">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Charts -->
+                <div class="card chart-card">
+                    <h3>Sentimen Konsumen</h3>
+                    <div class="chart-container">
+                        <canvas id="sentimentPieChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card chart-card">
+                    <h3>Top Keywords</h3>
+                    <div class="keywords-container" id="keyword-list">
+                        <!-- Keywords will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments List -->
+            <div class="card comments-card">
+                <div class="comments-header">
+                    <h3>Analisis Komentar</h3>
+                    <div class="filters">
+                        <span class="badge badge-all active">Semua</span>
+                        <span class="badge badge-success">Ingin Beli</span>
+                        <span class="badge badge-info">Tidak Beli</span>
+                        <span class="badge badge-danger">Negatif</span>
+                        <span class="badge badge-warning">Pertanyaan</span>
+                    </div>
+                </div>
+                <div class="comments-list" id="comments-list">
+                    <!-- Comments injected via JS -->
+                </div>
+            </div>
+            
+            <div class="reset-container">
+                <button id="reset-btn" class="btn-outline">Mulai Analisis Baru</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
