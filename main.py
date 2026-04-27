@@ -22,9 +22,6 @@ app.add_middleware(
 class AnalyzeRequest(BaseModel):
     url: str
 
-# Create static directory if not exists
-os.makedirs("static", exist_ok=True)
-
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

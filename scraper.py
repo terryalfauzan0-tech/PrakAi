@@ -26,7 +26,7 @@ async def scrape_tiktok(url: str):
 
     # 2. Fetch Comments dengan Pagination
     cursor = 0
-    max_pages = 40 
+    max_pages = 20 # Dikurangi agar aman dari timeout Vercel (Hobby plan max 10s)
     
     try:
         for page in range(max_pages):
